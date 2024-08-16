@@ -55,8 +55,6 @@ public class RegisterActivity extends AppCompatActivity {
         changeUI(mEmail);
         changeUI(mPassword);
 
-        // TODO: Remember to prompt user to grant specified permissions
-
         togglePassword.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if(isChecked){
                 mPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);

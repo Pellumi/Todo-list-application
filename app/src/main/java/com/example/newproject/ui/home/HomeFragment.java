@@ -122,7 +122,6 @@ public class HomeFragment extends Fragment implements TaskAdapter.OnTaskStarredL
 
         createTask.setOnClickListener(v -> {
             addTask();
-            // TODO: change the toast to a SnackBar
             Toast.makeText(getContext(), "Task has been created", Toast.LENGTH_SHORT).show();
         });
 

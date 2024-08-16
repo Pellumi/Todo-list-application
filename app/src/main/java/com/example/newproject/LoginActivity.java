@@ -128,7 +128,6 @@ public class LoginActivity extends AppCompatActivity {
                                     .setNegativeButton("Reset Password", (dialog, id) -> {
                                         dialog.cancel();
                                         startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-                                        // TODO: create a forgot password activity
                                     });
                             AlertDialog dialog = builder.create();
                             dialog.show();
