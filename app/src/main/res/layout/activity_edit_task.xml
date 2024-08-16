@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditTaskActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="15dp"
+        android:paddingHorizontal="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/back_to_main"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/baseline_arrow_back_ios_24"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:background="@color/transparent"
+                android:layout_height="match_parent"/>
+
+            <CheckBox
+                android:id="@+id/toggle_starred"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:button="@drawable/star_selector"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/task_topic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp"
+                android:text="Task Topic Here"
+                android:inputType="text"
+                android:layout_marginBottom="10dp"
+                android:textSize="18sp"
+                android:textColor="?android:attr/textColor"
+                android:background="@drawable/edit_text_bg"/>
+
+            <EditText
+                android:id="@+id/task_text"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:padding="15dp"
+                android:text="Task Description Here"
+                android:gravity="top"
+                android:inputType="text"
+                android:layout_marginBottom="10dp"
+                android:textSize="18sp"
+                android:textColor="?android:attr/textColor"
+                android:background="@drawable/edit_text_bg"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/update_task"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_main_bg"
+                android:text="Update Task"
+                android:textSize="16sp"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

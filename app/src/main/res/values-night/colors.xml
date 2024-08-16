@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="opp_black">#FDFDFD</color>
+    <color name="test_black">#33FFFFFF</color>
+    <color name="opp_white">#FF000000</color>
+    <color name="white">#FDFDFD</color>
+    <color name="bg_color">#0d1117</color>
+    <color name="opp_bg_color">#FDFDFD</color>
+    <color name="accent_color">#80F8E6De</color>
+    <color name="danger_color">#b62324</color>
+    <color name="btn_acc">#238636</color>
+    <color name="neutral">#164cd6</color>
+    <color name="text_color">#FDFDFD</color>
+    <color name="primaryColor">#ED500A</color>
+    <color name="darkGray">#FF333333</color>
+    <color name="transparent">#00000000</color>
+    <color name="disabled">#FFBBBBBB</color>
+    <color name="darkDisabled">#FF9B9B9B</color>
+    <color name="shadow">#30363d</color>
+</resources>

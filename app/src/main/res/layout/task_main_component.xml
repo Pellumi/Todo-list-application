@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@drawable/rounded_tab_bg"
+    android:layout_marginBottom="15dp"
+    android:gravity="center_vertical"
+    android:paddingVertical="10dp"
+    android:layout_height="wrap_content"
+    android:minHeight="60dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/toggle_done"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:button="@drawable/done_selector"
+            android:layout_marginEnd="10dp"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/task_main_topic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add a New Task"
+                android:textSize="16sp"
+                android:layout_marginBottom="5dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/task_main_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Let's try something new"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/toggle_starred"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:button="@drawable/star_selector" />
+    </LinearLayout>
+</LinearLayout>

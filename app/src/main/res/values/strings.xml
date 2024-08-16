@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Tasked</string>
+    <string name="title_activity_hero">HeroActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="account">Account</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="enter_our_email_address">Enter your Password</string>
+    <string name="username">Username</string>
+    <string name="enter_your_username_here">Enter your email address here</string>
+    <string name="first_name">First Name</string>
+    <string name="register">Register</string>
+    <string name="tasks">Tasks</string>
+    <string name="completed">Completed</string>
+    <string name="back_arrow">Back Arrow</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="let_s_get_you_back_where_you_belong">Let\'s get you back where you belong</string>
+    <string name="email_address">Email Address</string>
+    <string name="show_password">Show Password</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="create_an_account_and_connect_with_your_friends">Create an account and connect with your friends</string>
+    <string name="last_name">Last Name</string>
+</resources>
