@@ -40,6 +40,7 @@ public class AccountFragment extends Fragment {
         View root = binding.getRoot();
 
         FileOps fileOps = new FileOps(getContext());
+        tasks = TaskStorage.loadTasks(getContext());
 
         binding.logoutBtn.setOnClickListener(v -> {
             try{
