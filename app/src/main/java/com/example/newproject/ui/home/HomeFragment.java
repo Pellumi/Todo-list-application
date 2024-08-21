@@ -41,7 +41,7 @@ import java.util.stream.Collectors;
 public class HomeFragment extends Fragment implements TaskAdapter.OnTaskStarredListener, TaskAdapter.OnTaskCompletedListener{
     private RecyclerView starredTaskList;
     private TaskAdapter taskAdapter;
-    private LinearLayout emptyArray, completedTab, remainedTab, deletedTab;
+    private LinearLayout emptyArray, completedTab, remainedTab, deletedTab, moveToTask;
     private ArrayList<Tasks> tasks;
     private FileOps fileOps;
     private UIEffects uiEffects;
@@ -68,6 +68,7 @@ public class HomeFragment extends Fragment implements TaskAdapter.OnTaskStarredL
         mCompletedTaskNum = view.findViewById(R.id.complete_task_num);
         mRemainedTaskNum = view.findViewById(R.id.remain_task_num);
         mDeletedTaskNum = view.findViewById(R.id.delete_task_num);
+        moveToTask = view.findViewById(R.id.move_to_task);
 
         fileOps = new FileOps(getContext());
         uiEffects = new UIEffects();
@@ -82,6 +83,10 @@ public class HomeFragment extends Fragment implements TaskAdapter.OnTaskStarredL
         }
 
         updateTaskList();
+
+        moveToTask.setOnClickListener(v -> {
+            Toast.makeText(getContext(), "Were still working on this", Toast.LENGTH_SHORT).show();
+        });
 
         completedTab.setOnClickListener(v -> {
 //            Navigation.findNavController(v).navigate(R.id.navigation_home_to_navigation_notifications);
