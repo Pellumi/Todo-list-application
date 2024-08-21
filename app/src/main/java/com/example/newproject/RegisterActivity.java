@@ -49,6 +49,10 @@ public class RegisterActivity extends AppCompatActivity {
         logIn = findViewById(R.id.log_in);
         togglePassword = findViewById(R.id.toggle_password);
 
+        backToMain.setOnClickListener(v -> {
+            Toast.makeText(RegisterActivity.this, "This feature will be available in the next update", Toast.LENGTH_SHORT).show();
+        });
+
         changeUI(lastName);
         changeUI(firstName);
 //        changeUI(userName);

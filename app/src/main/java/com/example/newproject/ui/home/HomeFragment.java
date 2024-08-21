@@ -31,8 +31,7 @@ import com.example.newproject.TaskAdapter;
 import com.example.newproject.TaskStorage;
 import com.example.newproject.Tasks;
 import com.example.newproject.UIEffects;
-import com.example.newproject.databinding.FragmentHomeBinding;
-import com.google.android.material.snackbar.Snackbar;
+
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -85,29 +84,24 @@ public class HomeFragment extends Fragment implements TaskAdapter.OnTaskStarredL
         updateTaskList();
 
         moveToTask.setOnClickListener(v -> {
-            Toast.makeText(getContext(), "Were still working on this", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "This feature will be released in the next update", Toast.LENGTH_SHORT).show();
         });
 
         completedTab.setOnClickListener(v -> {
-//            Navigation.findNavController(v).navigate(R.id.navigation_home_to_navigation_notifications);
             intent = new Intent(getContext(), HeroActivity.class);
             intent.setData(Uri.parse("myapp://navigation_notifications"));
             startActivity(intent);
-//            Toast.makeText(getContext(), "Completed Tasks", Toast.LENGTH_SHORT).show();
         });
 
         remainedTab.setOnClickListener(v -> {
-//            Navigation.findNavController(v).navigate(R.id.navigation_home_to_navigation_dashboard);
             intent = new Intent(getContext(), HeroActivity.class);
             intent.setData(Uri.parse("myapp://navigation_dashboard"));
             startActivity(intent);
-//            Toast.makeText(getContext(), "Remained Tasks", Toast.LENGTH_SHORT).show();
         });
 
         deletedTab.setOnClickListener(v -> {
             intent = new Intent(getContext(), DeletedTaskActivity.class);
             startActivity(intent);
-//            Toast.makeText(getContext(), "Deleted Tasks", Toast.LENGTH_SHORT).show();
         });
 
         intent = requireActivity().getIntent();

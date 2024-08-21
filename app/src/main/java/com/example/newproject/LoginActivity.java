@@ -55,6 +55,10 @@ public class LoginActivity extends AppCompatActivity {
         signUp = findViewById(R.id.sign_up);
         togglePassword = findViewById(R.id.toggle_password);
 
+        backToMain.setOnClickListener(v -> {
+            Toast.makeText(LoginActivity.this, "This feature will be available in the next update", Toast.LENGTH_SHORT).show();
+        });
+
         changeUI(mEmail);
         changeUI(mPassword);
 
@@ -84,9 +88,9 @@ public class LoginActivity extends AppCompatActivity {
             } else {
 //                check if database values match
                 mEmail.setEnabled(false);
-                mEmail.setAlpha(0.5F);
+//                mEmail.setAlpha(0.5F);
                 mPassword.setEnabled(false);
-                mEmail.setAlpha(0.5F);
+//                mEmail.setAlpha(0.5F);
                 Toast.makeText(LoginActivity.this, "Logging in...", Toast.LENGTH_SHORT).show();
 
                 try {
@@ -96,9 +100,9 @@ public class LoginActivity extends AppCompatActivity {
                             handleSuccessfulLogin();
                         } else if (Objects.requireNonNull(Objects.requireNonNull(task.getException()).getMessage()).contains("There is no user record corresponding to this identifier")) {
                             mEmail.setEnabled(true);
-                            mEmail.setAlpha(1F);
+//                            mEmail.setAlpha(1F);
                             mPassword.setEnabled(true);
-                            mEmail.setAlpha(1F);
+//                            mEmail.setAlpha(1F);
 
                             AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                             builder.setTitle("Invalid Credentials")
@@ -110,17 +114,17 @@ public class LoginActivity extends AppCompatActivity {
                                     .setNegativeButton("Cancel", (dialog, id) -> {
                                         dialog.cancel();
                                         mEmail.setEnabled(true);
-                                        mEmail.setAlpha(1F);
+//                                        mEmail.setAlpha(1F);
                                         mPassword.setEnabled(true);
-                                        mEmail.setAlpha(1F);
+//                                        mEmail.setAlpha(1F);
                                     });
                             AlertDialog dialog = builder.create();
                             dialog.show();
                         } else if (task.getException().getMessage().contains("auth credential is incorrect")) {
                             mEmail.setEnabled(true);
-                            mEmail.setAlpha(1F);
+//                            mEmail.setAlpha(1F);
                             mPassword.setEnabled(true);
-                            mEmail.setAlpha(1F);
+//                            mEmail.setAlpha(1F);
                             AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                             builder.setTitle("Invalid Username or Password")
                                     .setMessage("Username or Password is incorrect")
@@ -133,9 +137,9 @@ public class LoginActivity extends AppCompatActivity {
                             dialog.show();
                         } else if (task.getException().getMessage().contains("network error")) {
                             mEmail.setEnabled(true);
-                            mEmail.setAlpha(1F);
+//                            mEmail.setAlpha(1F);
                             mPassword.setEnabled(true);
-                            mEmail.setAlpha(1F);
+//                            mEmail.setAlpha(1F);
                             AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                             builder.setTitle("Network Error")
                                     .setMessage("Please check your internet connection")
@@ -144,9 +148,9 @@ public class LoginActivity extends AppCompatActivity {
                             dialog.show();
                         } else {
                             mEmail.setEnabled(true);
-                            mEmail.setAlpha(1F);
+//                            mEmail.setAlpha(1F);
                             mPassword.setEnabled(true);
-                            mEmail.setAlpha(1F);
+//                            mEmail.setAlpha(1F);
                             AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
                             builder.setTitle("Error")
                                     .setMessage(task.getException().getMessage())
