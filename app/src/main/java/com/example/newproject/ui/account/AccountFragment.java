@@ -20,9 +20,15 @@ import com.example.newproject.LoginActivity;
 import com.example.newproject.Notification;
 import com.example.newproject.R;
 import com.example.newproject.TaskStorage;
+import com.example.newproject.Tasks;
 import com.example.newproject.databinding.FragmentAccountBinding;
 
+import java.util.ArrayList;
+import java.util.stream.Collectors;
+
 public class AccountFragment extends Fragment {
+    private String mTaskOwner;
+    private ArrayList<Tasks> tasks;
     Intent intent;
     private FragmentAccountBinding binding;
 
@@ -36,26 +42,47 @@ public class AccountFragment extends Fragment {
         FileOps fileOps = new FileOps(getContext());
 
         binding.logoutBtn.setOnClickListener(v -> {
-            FirebaseProcess.uploadTask(getContext(), new FirebaseProcess.OnUploadTaskListener() {
-                @Override
-                public void OnUploadSuccess(String status) {
-                    String taskOwner = fileOps.readIntStorage("userEmail.txt");
-                    TaskStorage.deleteTask(getContext(), taskOwner);
+            try{
+                mTaskOwner = fileOps.readIntStorage("userEmail.txt");
+            } catch (RuntimeException e){
+                mTaskOwner = "";
+            }
 
-                    fileOps.writeToIntFile("userName.txt", "");
-                    fileOps.writeToIntFile("userEmail.txt", "");
-                    fileOps.writeToIntFile("userLog.txt", "-1");
+            ArrayList<Tasks> totalTasks = (ArrayList<Tasks>) tasks.stream()
+                    .filter(tasks -> mTaskOwner.equals(tasks.taskOwner))
+                    .collect(Collectors.toList());
 
-                    intent = new Intent(requireActivity(), LoginActivity.class);
-                    startActivity(intent);
-                }
+            int taskNum = totalTasks.size();
+            
+            if (taskNum == 0){
+                fileOps.writeToIntFile("userName.txt", "");
+                fileOps.writeToIntFile("userEmail.txt", "");
+                fileOps.writeToIntFile("userLog.txt", "-1");
 
-                @Override
-                public void OnUploadFailure(String message) {
-                    Toast.makeText(getContext(), "Log out Failed, Please try again later", Toast.LENGTH_SHORT).show();
-                    Log.d("AccountFragment", message);
-                }
-            });
+                intent = new Intent(requireActivity(), LoginActivity.class);
+                startActivity(intent);
+            } else {
+                FirebaseProcess.uploadTask(getContext(), new FirebaseProcess.OnUploadTaskListener() {
+                    @Override
+                    public void OnUploadSuccess(String status) {
+                        String taskOwner = fileOps.readIntStorage("userEmail.txt");
+                        TaskStorage.deleteTask(getContext(), taskOwner);
+
+                        fileOps.writeToIntFile("userName.txt", "");
+                        fileOps.writeToIntFile("userEmail.txt", "");
+                        fileOps.writeToIntFile("userLog.txt", "-1");
+
+                        intent = new Intent(requireActivity(), LoginActivity.class);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void OnUploadFailure(String message) {
+                        Toast.makeText(getContext(), "Log out Failed, Please try again later", Toast.LENGTH_SHORT).show();
+                        Log.d("AccountFragment", message);
+                    }
+                });
+            }
         });
 
         binding.uploadTask.setOnClickListener(v -> {
